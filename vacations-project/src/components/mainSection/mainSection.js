@@ -15,8 +15,8 @@ class MainSection extends Component {
     renderMainSection() {
         return (
             <div className="main-section"> 
-                <Search></Search>
-                <VacationList vacations={this.props.vacations}></VacationList> 
+                <Search onSearch={this.props.funcSetFilter}></Search>
+                <VacationList vacations={this.props.vacations} funcOnDelete={this.props.funcOnDelete} funcOnEdit={this.props.funcOnEdit} filter={this.props.filter}></VacationList> 
             </div>
            
         )

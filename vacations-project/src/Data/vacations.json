@@ -8,8 +8,8 @@
     },
     {
         "id":2,
-        "name": "LA Dream",
-        "location":"USA",
+        "name": "Studio City LA",
+        "location":"Los Angeles ,USA",
         "price":"2000$",
         "imageUrl":"https://cdn.getyourguide.com/img/location/5be807854b9af.jpeg/92.jpg"
     },
@@ -29,30 +29,30 @@
     },
     {
         "id":5,
-        "name": "Bacalar Dream",
+        "name": "Laguna Bacalar",
         "location":"Mexico",
         "price":"5000$",
         "imageUrl":"http://res.cloudinary.com/simpleview/image/upload/v1571764428/clients/quintanaroo/bacalar_2_e0ba2b03-7462-4cbf-8d27-ef8243664867.jpg"
     },
     {
         "id":6,
-        "name": "London Dream",
-        "location":"England",
+        "name": "Fuji",
+        "location":"Japan",
         "price":"6000$",
-        "imageUrl":"https://images.contentstack.io/v3/assets/blt00454ccee8f8fe6b/bltf5fca6a3eec4d180/6139d40bec680b43eb02a9ee/US_London_UK_Header.jpg?width=1680&auto=webp"
+        "imageUrl":"https://www.state.gov/wp-content/uploads/2019/04/Japan-2107x1406.jpg"
     },
     {
         "id":7,
-        "name": "London Dream",
-        "location":"England",
+        "name": "Ko phi phi",
+        "location":"Thailand",
         "price":"6000$",
-        "imageUrl":"https://images.contentstack.io/v3/assets/blt00454ccee8f8fe6b/bltf5fca6a3eec4d180/6139d40bec680b43eb02a9ee/US_London_UK_Header.jpg?width=1680&auto=webp"
+        "imageUrl":"https://gecexchanges.com/wp-content/uploads/teach-english-in-thailand-banner.jpg"
     },
     {
         "id":8,
-        "name": "London Dream",
-        "location":"England",
+        "name": "Amsterdam",
+        "location":"Holand",
         "price":"6000$",
-        "imageUrl":"https://images.contentstack.io/v3/assets/blt00454ccee8f8fe6b/bltf5fca6a3eec4d180/6139d40bec680b43eb02a9ee/US_London_UK_Header.jpg?width=1680&auto=webp"
+        "imageUrl":"https://www.meininger-hotels.com/fileadmin/images/meininger-hotels-in-amsterdam-zentrum-6d28120.jpg"
     }
 ]

@@ -55,6 +55,7 @@
     left:64%;
 }
 
+
 .delete-button{
     background-color: #FF6647;
     border-radius:50% ;
@@ -66,6 +67,11 @@
     position:absolute;
     top:87%;
     left:79%;
+}
+
+.edit-button ,
+.delete-button{
+    cursor:pointer;
 }
 
 .down-card{
@@ -116,4 +122,8 @@
     margin-top: 34px;
 }; 
 
-
+/* 
+.dots{
+    text-overflow: ellipsis 10px;
+    
+} */
