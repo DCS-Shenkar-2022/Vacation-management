@@ -9,11 +9,16 @@ import VacationList from './components/vacationsList/vacationsList.js';
 import Search from './components/search/search'
 
 import MainSection from './components/mainSection/mainSection.js'
+
+import Form from './components/form/form.js'
+
+import FormSection from './components/formSection/formSection.js'
 import './style/font.css';
 
+import App from './components/app/app.js'
 ReactDOM.render(
   <React.StrictMode>
-    <MainSection />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

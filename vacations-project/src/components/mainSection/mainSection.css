@@ -1,5 +1,6 @@
 .main-section{
-    width:700px;
+    width:50%;
+    /* tor 700 */
     display:flex;
     flex-direction: column;
     justify-content: center;

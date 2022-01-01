@@ -40,5 +40,19 @@
         "location":"England",
         "price":"6000$",
         "imageUrl":"https://images.contentstack.io/v3/assets/blt00454ccee8f8fe6b/bltf5fca6a3eec4d180/6139d40bec680b43eb02a9ee/US_London_UK_Header.jpg?width=1680&auto=webp"
+    },
+    {
+        "id":7,
+        "name": "London Dream",
+        "location":"England",
+        "price":"6000$",
+        "imageUrl":"https://images.contentstack.io/v3/assets/blt00454ccee8f8fe6b/bltf5fca6a3eec4d180/6139d40bec680b43eb02a9ee/US_London_UK_Header.jpg?width=1680&auto=webp"
+    },
+    {
+        "id":8,
+        "name": "London Dream",
+        "location":"England",
+        "price":"6000$",
+        "imageUrl":"https://images.contentstack.io/v3/assets/blt00454ccee8f8fe6b/bltf5fca6a3eec4d180/6139d40bec680b43eb02a9ee/US_London_UK_Header.jpg?width=1680&auto=webp"
     }
 ]

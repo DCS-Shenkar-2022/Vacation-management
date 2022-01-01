@@ -12,7 +12,7 @@ class MainSection extends Component {
     renderMainSection() {
         return (
             <div className="main-section"> 
-                <Search className="search-component"></Search>
+                <Search></Search>
                 <VacationList></VacationList> 
             </div>
            
