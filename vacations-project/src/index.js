@@ -4,12 +4,16 @@ import './index.css';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
-import VacationList from './components/vacationsList/vacationsList.js'
-import './style/font.css'
+import VacationList from './components/vacationsList/vacationsList.js';
+
+import Search from './components/search/search'
+
+import MainSection from './components/mainSection/mainSection.js'
+import './style/font.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <VacationList />
+    <MainSection />
   </React.StrictMode>,
   document.getElementById('root')
 );
