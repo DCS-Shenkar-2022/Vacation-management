@@ -5,6 +5,9 @@ import { MdEdit,MdDelete,MdPlace } from "react-icons/md";
 class Vacation extends Component {
     constructor(props){
         super(props);
+
+        this.renderVacation =this.renderVacation.bind(this); 
+
     }
 
     renderVacation() {

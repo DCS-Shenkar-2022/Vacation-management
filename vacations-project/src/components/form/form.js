@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../form/form.css'
-import { MdCancel,MdCheckCircle } from "react-icons/md";
 import { IoIosAdd,IoIosCheckmark,IoIosClose } from "react-icons/io";
 class Form extends Component {
     constructor(props){

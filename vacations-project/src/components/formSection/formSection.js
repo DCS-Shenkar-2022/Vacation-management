@@ -11,7 +11,7 @@ class FormSection extends Component {
     renderFormSection() {
         return (
             <div className="form-section"> 
-              <Form className="form-component" ></Form> 
+              <Form ></Form> 
             </div>
            
         )

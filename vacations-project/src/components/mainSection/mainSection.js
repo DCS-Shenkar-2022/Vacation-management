@@ -7,13 +7,16 @@ import '../mainSection/mainSection.css'
 class MainSection extends Component {
     constructor(props){
         super(props);
+
+        this.renderMainSection =this.renderMainSection.bind(this); 
+
     }
 
     renderMainSection() {
         return (
             <div className="main-section"> 
                 <Search></Search>
-                <VacationList></VacationList> 
+                <VacationList vacations={this.props.vacations}></VacationList> 
             </div>
            
         )
