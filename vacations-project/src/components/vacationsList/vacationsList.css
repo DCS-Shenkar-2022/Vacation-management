@@ -5,3 +5,20 @@
     margin-bottom: 40px;
     height:100%;
 }
+
+.vacations-list p{
+    margin-left: 30%;
+    margin-top: 10%;
+    font-weight: bold;
+}
+
+@media (max-width: 1290px) {
+    .vacations-list{
+        width:700px; 
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+        height:100%;
+        padding-left: 30px;
+    }
+}

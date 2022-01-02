@@ -35,12 +35,12 @@ class Vacation extends Component {
                         <MdDelete className='delete-button' onClick={this.delete}></MdDelete>
                     </div> 
                     <div className="down-card">
-                        <div className="down-up ">
-                            <div>{this.props.name}</div>
+                        <div className="down-up">
+                            <div className="dots">{this.props.name}</div>
                         </div>
                         <div className="down-down">
-                            <div className="place "><MdPlace className="place-icon"></MdPlace><span>&nbsp; {this.props.location}</span></div>
-                            <div className="price"><span>{this.props.price}</span></div>
+                            <div className="place dots"><MdPlace className="place-icon"></MdPlace><span >&nbsp; {this.props.location}</span></div>
+                            <div className="price"><span className="dots">{this.props.price}</span></div>
                         </div>
                     </div>
                 </div>

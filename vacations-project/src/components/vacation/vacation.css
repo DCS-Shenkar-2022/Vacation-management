@@ -93,9 +93,6 @@
 .down-card .down-down{
     display: flex;
     justify-content:space-between;
-    /* position:absolute; */
-    /* top:33px;
-    left:13px; */
     padding-right: 12px;
     padding-left: 12px;
 
@@ -114,7 +111,7 @@
     color: #FF6647;
 }
 
-.down-card .place span{
+.down-card .place div{
     color:#a9a9a9 ;
     font-weight: bold;
     font-size: 14px;
@@ -122,8 +119,13 @@
     margin-top: 34px;
 }; 
 
-/* 
-.dots{
-    text-overflow: ellipsis 10px;
-    
+
+/* .dots{
+    display: inline-block;
+    width: 100px;
+    background-color: rgb(197, 238, 238);
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
 } */
+

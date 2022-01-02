@@ -38,3 +38,10 @@ html{
     text-overflow: ellipsis;
 }
 
+.dots{
+  display:block;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Vacation from '../vacation/vacations';
 import vacationsData from '../../Data/vacations.json'
 import '../vacationsList/vacationsList.css'
+import { MdFormatListNumberedRtl } from 'react-icons/md';
 
 class VacationList extends Component {
     constructor(props){
@@ -19,9 +20,20 @@ class VacationList extends Component {
         </Vacation>
     }
 
+
+
+    
     renderVacations(filter){
         let resultVacations;
-        return resultVacations= this.props.vacations.map((vacation,keyIterator)=>{
+        let filterVacations=this.props.vacations.filter((vacation)=>{
+            if(vacation.name.toLowerCase().includes(filter.toLowerCase()) || vacation.location.toLowerCase().includes(filter.toLowerCase())  ){
+                return true;
+            }
+            else{
+                return false;
+            }
+        });
+         resultVacations= this.props.vacations.map((vacation,keyIterator)=>{
             if(filter=="") {
                return this.createOneVacation(vacation,keyIterator);
             }
@@ -33,21 +45,17 @@ class VacationList extends Component {
         }
             
         )
-        // console.log(resultVacations);
-        // let noUndifined=resultVacations.filter(vec=>vec);
-        // console.log(noUndifined)
-        // if(noUndifined){
-        //     return resultVacations;
 
-        // }
-        // else{             
-        //     return "There are no available vacations! "
-        // }
+        if(filterVacations.length>0){
+            return resultVacations;
+        }
+        else{
+            return <p> &#9992; Sorry, no search results are found &#128532; </p>
+        }
+
     }
 
-
     render(){
-        // console.log(this.renderVacations(this.props.filter) )
         return(
             <div className="vacations-list">
                 { this.renderVacations(this.props.filter) }

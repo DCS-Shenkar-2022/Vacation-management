@@ -10,9 +10,7 @@ class MainSection extends Component {
 
         this.renderMainSection =this.renderMainSection.bind(this); 
     }
-
     renderMainSection() {
-
         return (
             <div className="main-section"> 
                 <Search onSearch={this.props.funcSetFilter}></Search>
@@ -21,7 +19,6 @@ class MainSection extends Component {
            
         )
     }
-
     render(){
         return this.renderMainSection();
     }

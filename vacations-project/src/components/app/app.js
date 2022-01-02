@@ -66,21 +66,21 @@ class App extends Component {
                 editing:true
             }))
 
-        // this.state.vacationToEdit.style.border='black';
     
         }
         
         updateVacation(newVacation){   
             this.setState(prevState=>({
                 vacations:prevState.vacations.map(vacation=>vacation.id !=newVacation.id ? vacation : newVacation),
-                editing:false
-    
+                editing:false,
+                vacationToEdit:{}
             }))
         }
 
         cancelUpdateVacation(){   
             this.setState({
-                editing:false
+                editing:false,
+                vacationToEdit:{}
             })
         }
 
