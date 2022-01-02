@@ -11,12 +11,6 @@ code {
   font-family: Alef;
 }
 
-
-@font-face {
-  src: url('https://fonts.googleapis.com/css2?family=Alef&display=swap');
-  font-family: Alef;
-}
-
 *{
   padding: 0;
   margin: 0;
@@ -45,3 +39,4 @@ html{
   overflow: hidden !important;
   text-overflow: ellipsis;
 }
+

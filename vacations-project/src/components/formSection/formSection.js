@@ -12,10 +12,8 @@ class FormSection extends Component {
         return (
             <div className="form-section"> 
               <Form vacationToEdit={this.props.vacationToEdit} editMode={this.props.editMode} onSave={this.props.funcToUpdate} onCancel={this.props.funcToCancel} onAdd={this.props.funcToAdd} deleteMode={this.props.deleteMode} onAfterDelete={this.props.changeDeleteMode}></Form> 
-            </div>
-           
+            </div>  
         )
-       
     }
 
     render(){

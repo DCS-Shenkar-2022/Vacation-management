@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-
 import Search from '../search/search.js'
 import VacationList from '../vacationsList/vacationsList';
-
 import '../mainSection/mainSection.css'
+
 class MainSection extends Component {
     constructor(props){
         super(props);
-
         this.renderMainSection =this.renderMainSection.bind(this); 
     }
+    
     renderMainSection() {
         return (
             <div className="main-section"> 
@@ -19,6 +18,7 @@ class MainSection extends Component {
            
         )
     }
+
     render(){
         return this.renderMainSection();
     }

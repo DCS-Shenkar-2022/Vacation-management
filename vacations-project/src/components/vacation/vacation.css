@@ -1,4 +1,3 @@
-
 .vacation{
     width:293px;
     height:261px; 
@@ -35,7 +34,6 @@
 
 .up-card img{
     height: 170.38px;
-    /* width:100%; */
     border-radius: 20px;
     object-fit: cover;
     width:100%;
@@ -119,13 +117,4 @@
     margin-top: 34px;
 }; 
 
-
-/* .dots{
-    display: inline-block;
-    width: 100px;
-    background-color: rgb(197, 238, 238);
-    white-space: nowrap;
-    overflow: hidden !important;
-    text-overflow: ellipsis;
-} */
 

@@ -13,7 +13,6 @@
     margin-top:130px;
 }
 
-
 .form-add{
     background-image: url(../form//back-form.svg);
     background-repeat: no-repeat;
@@ -46,6 +45,7 @@
     line-height: 16px;
     margin-bottom: 4px;
 }
+
 .form .inputelement{
     display:flex;
     flex-direction: column;
