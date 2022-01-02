@@ -62,11 +62,11 @@ class App extends Component {
 
         requestToEdit(vacationIdToEdit){
             this.setState(prevState=>({
-                vacationToEdit:prevState.vacations.find(vacation=>vacation.id ==vacationIdToEdit ),
+                vacationToEdit:prevState.vacations.find(vacation=>vacation.id === vacationIdToEdit ),
                 editing:true
             }))
 
-        this.state.vacationToEdit.style.border='black';
+        // this.state.vacationToEdit.style.border='black';
     
         }
         
@@ -100,7 +100,7 @@ class App extends Component {
     renderApp() {
         return (
             <div className="app"> 
-              <MainSection vacations={this.state.vacations} funcOnDelete={this.deleteVacation} funcOnEdit={this.requestToEdit}  funcSetFilter={this.setFilter} filter={this.state.filter}></MainSection> 
+              <MainSection vacations={this.state.vacations} funcOnDelete={this.deleteVacation} funcOnEdit={this.requestToEdit}  funcSetFilter={this.setFilter} filter={this.state.filter} vacationRequestToEdit={this.state.vacationToEdit.id} ></MainSection> 
               <FormSection vacationToEdit={this.state.vacationToEdit} editMode={this.state.editing} funcToUpdate={this.updateVacation} funcToCancel={this.cancelUpdateVacation} funcToAdd={this.addToVacationsData} deleteMode={this.state.deleting} changeDeleteMode={this.changeDeleteMode}></FormSection> 
             </div>
            

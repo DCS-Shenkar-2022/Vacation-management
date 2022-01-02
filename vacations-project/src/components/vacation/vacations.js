@@ -5,9 +5,6 @@ import { MdEdit,MdDelete,MdPlace } from "react-icons/md";
 class Vacation extends Component {
     constructor(props){
         super(props);
-        this.state={
-           editing:false
-        }
         this.renderVacation =this.renderVacation.bind(this); 
         this.delete=this.delete.bind(this);
         this.edit=this.edit.bind(this);
@@ -18,23 +15,20 @@ class Vacation extends Component {
     }
 
     edit(){
-        this.setState({
-            editing:true
-        })
         this.props.onEdit(this.props.index);
         
     }
 
 
     renderVacation() {
-        // let borderStyle={border:"none"}
-        // if( this.state.editing){
-        //     borderStyle.border="2px #F86549 solid";
-        // }
+        let borderStyle={border:"none"}
+        if(this.props.onReqEdit && this.props.onReqEdit===this.props.index){
+            borderStyle.border="2px #F86549 solid";
+        }
         return (
             <div className="vacation">
                 {/* style={borderStyle} */}
-                <div className="card" >
+                <div className="card" style={borderStyle}>
                     <div className="up-card">
                         <div><img src={this.props.imageUrl}></img></div>
                         <MdEdit className='edit-button' onClick={this.edit}></MdEdit>

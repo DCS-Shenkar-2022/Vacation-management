@@ -9,14 +9,14 @@ class MainSection extends Component {
         super(props);
 
         this.renderMainSection =this.renderMainSection.bind(this); 
-
     }
 
     renderMainSection() {
+
         return (
             <div className="main-section"> 
                 <Search onSearch={this.props.funcSetFilter}></Search>
-                <VacationList vacations={this.props.vacations} funcOnDelete={this.props.funcOnDelete} funcOnEdit={this.props.funcOnEdit} filter={this.props.filter}></VacationList> 
+                <VacationList vacations={this.props.vacations} funcOnDelete={this.props.funcOnDelete} funcOnEdit={this.props.funcOnEdit} filter={this.props.filter} vacationRequestToEdit={this.props.vacationRequestToEdit}></VacationList> 
             </div>
            
         )
