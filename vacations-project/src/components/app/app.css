@@ -1,13 +1,15 @@
 .app{
     display:flex;
     background-color: #E5E5E5;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
 }
 
-@media (max-width: 923px) {
+/* @media (max-width: 923px) {
     .app{
         display:flex;
         background-color: #E5E5E5;
         flex-wrap: wrap-reverse;
     }
 }
-
+ */

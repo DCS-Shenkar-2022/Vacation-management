@@ -9,6 +9,7 @@ class Vacation extends Component {
         this.renderVacation = this.renderVacation.bind(this);
         this.delete = this.delete.bind(this);
         this.edit = this.edit.bind(this);
+        // this.numberWithCommas = this.numberWithCommas.bind(this);
 
     }
     delete() {
@@ -19,6 +20,7 @@ class Vacation extends Component {
         this.props.onEdit(this.props.index);
 
     }
+
 
     renderVacation() {
         let borderStyle = { border: "none" }
@@ -46,9 +48,9 @@ class Vacation extends Component {
                                     <span >&nbsp; {this.props.location}</span>
                                 </div>
                             </Tooltip>
-                            <Tooltip describeChild title={"$"+ this.props.price} arrow>
+                            <Tooltip describeChild title={"$"+this.props.price.toLocaleString()} arrow>
                                 <div className="price">
-                                    <span className="dots">{"$"+this.props.price}</span>
+                                    <span className="dots">{"$"+parseInt(this.props.price).toLocaleString() }</span>
                                 </div>
                             </Tooltip>
                         </div>

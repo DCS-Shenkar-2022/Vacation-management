@@ -9,13 +9,15 @@ class Form extends Component {
             name: "",
             location: "",
             price: "",
-            imageUrl: ""
+            imageUrl: "",
+            errorMsg: ""
         }
         this.clearStateFields = this.clearStateFields.bind(this);
         this.onValueChange = this.onValueChange.bind(this);
         this.save = this.save.bind(this);
         this.cancelSave = this.cancelSave.bind(this);
         this.add = this.add.bind(this);
+        this.validateInputs = this.validateInputs.bind(this);
     }
 
     clearStateFields() {
@@ -25,7 +27,9 @@ class Form extends Component {
                 name: "",
                 location: "",
                 price: "",
-                imageUrl: ""
+                imageUrl: "",
+                errorMsg: ""
+
             }
         })
     }
@@ -35,11 +39,18 @@ class Form extends Component {
             this.setState(() => {
                 return { ...this.props.vacationToEdit }
             })
+            if (this.state.errorMsg) {
+            this.setState({
+                errorMsg: ""
+            })
+        }
         }
         if (this.props.deleteMode) {
             this.props.onAfterDelete();
             this.clearStateFields();
         }
+        
+
     }
 
     onValueChange(eventChangeField) {
@@ -61,13 +72,65 @@ class Form extends Component {
         this.clearStateFields();
     }
 
+
+
+    validateInputs() {
+        let errorMsg = ""
+        let counter = 1;
+        if (this.state.name == "" || this.state.location == "" || this.state.price == "" || this.state.imageUrl == "") {
+            if (counter == 1) {
+                errorMsg += "Please check the following:\n"
+            }
+            errorMsg += `${counter++}. All fields are required !\n`
+        }
+
+        if (this.state.price < 0) {
+            if (counter == 1) {
+                errorMsg = +"Please check the following:\n"
+            }
+            errorMsg += `${counter++}. Negative price is not valid !\n`
+
+        }
+
+        const validURL = (urlToCheck) => {
+            var pattern = new RegExp('^(https?:\\/\\/)?' +
+                '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' +
+                '((\\d{1,3}\\.){3}\\d{1,3}))' +
+                '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' +
+                '(\\?[;&a-z\\d%_.~+=-]*)?' +
+                '(\\#[-a-z\\d_]*)?$', 'i');
+            return !!pattern.test(urlToCheck);
+        }
+
+        if (!validURL(this.state.imageUrl) && this.state.imageUrl != "") {
+            if (counter == 1) {
+                errorMsg = +"Please check the following:\n"
+            }
+            errorMsg += `${counter++}. Url is not valid!\n`
+        }
+
+        if (errorMsg == "")
+            return true;
+
+        this.setState({
+            errorMsg: errorMsg
+        })
+
+    }
+
     add() {
-        if (this.state.name && this.state.location && this.state.price) {
-            this.props.onAdd(this.state);
+
+        if (this.validateInputs()) {
+            this.props.onAdd({ id: null, name: this.state.name, location: this.state.location, price: this.state.price, imageUrl: this.state.imageUrl });
             this.clearStateFields();
         }
-        else return;
+        else {
+            return;
+        }
+
     }
+
+
 
     renderForm() {
 
@@ -91,6 +154,8 @@ class Form extends Component {
                         <label>Image Url</label>
                         <input type="text" placeholder="Image Url" name="imageUrl" value={this.state.imageUrl} onChange={this.onValueChange}></input>
                     </div>
+                    <div className="error-msg">{this.state.errorMsg}</div>
+
                 </form>
                 <div className="form-buttons">{this.props.editMode ?
                     <div><IoIosClose className="cancel-button" onClick={this.cancelSave}></IoIosClose><IoIosCheckmark className="check-button" onClick={this.save}></IoIosCheckmark>  </div> :

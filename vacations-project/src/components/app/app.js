@@ -30,7 +30,7 @@ class App extends Component {
         vacationsData.map(item => this.addToVacationsData({ id: item.id, name: item.name, location: item.location, price: item.price, imageUrl: item.imageUrl }))
     }
 
-    addToVacationsData({ id = null, name = 'vacation', location = 'place', price = "0$", imageUrl = "https://www.researchgate.net/profile/Ahmed-Mohmed-2/post/Why_do_we_need_a_vacation_How_often_do_you_need_a_vacationWhat_are_the_benefits_of_vacationsDo_vacations_make_you_happier/attachment/5e079b76cfe4a777d4fedc26/AS%3A841148566339584%401577556854285/image/vacation-final.jpg" }) {
+    addToVacationsData({ id = null, name , location , price , imageUrl}) {
         this.setState(prevState => ({
             vacations: [
                 ...prevState.vacations, {
