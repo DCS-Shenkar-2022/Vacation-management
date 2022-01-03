@@ -46,9 +46,9 @@ class Vacation extends Component {
                                     <span >&nbsp; {this.props.location}</span>
                                 </div>
                             </Tooltip>
-                            <Tooltip describeChild title={this.props.price} arrow>
+                            <Tooltip describeChild title={"$"+ this.props.price} arrow>
                                 <div className="price">
-                                    <span className="dots">{this.props.price}</span>
+                                    <span className="dots">{"$"+this.props.price}</span>
                                 </div>
                             </Tooltip>
                         </div>

@@ -37,7 +37,6 @@ class Form extends Component {
             })
         }
         if (this.props.deleteMode) {
-            // && (this.props.deleteMode!=prevProps.deleteMode)
             this.props.onAfterDelete();
             this.clearStateFields();
         }
@@ -86,7 +85,7 @@ class Form extends Component {
                     </div>
                     <div className="inputelement">
                         <label>Price</label>
-                        <input type="text" placeholder="Price" name="price" value={this.state.price} onChange={this.onValueChange}></input>
+                        <input type="number" placeholder="Price" name="price" value={this.state.price} onChange={this.onValueChange}></input>
                     </div>
                     <div className="inputelement">
                         <label>Image Url</label>
