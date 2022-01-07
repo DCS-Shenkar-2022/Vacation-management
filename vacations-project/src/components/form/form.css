@@ -63,8 +63,6 @@
     margin-top:16px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center;
-    align-items:center; */
     width: 100%;
 }
 
@@ -83,9 +81,7 @@
 .form-buttons{
     margin-top: 130px;
     margin-left: 30px;
-  
 }
-
 
 .error-msg{
     display:block;
@@ -97,14 +93,10 @@
     width:140px;
     padding-right:4px;
     border-radius: 5px;
-    /* box-shadow:  0px 4.2069px 15px #f86549; */
     position: absolute;
     top:55%;
-    /* box-shadow:  0px 4.2069px 15px #f86549; */
     height:60px;
-
 }
-
 
 @media (max-width: 1342px) {
     .form{
@@ -138,8 +130,6 @@
     }
 } 
 
-
-
 @media (max-width: 1043px) {
     .form{
         
@@ -171,5 +161,4 @@
         top:55%;
     }
 
-    
 } 

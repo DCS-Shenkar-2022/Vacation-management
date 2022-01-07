@@ -41,7 +41,6 @@ class VacationList extends Component {
         else {
             return <p> &#9992; Sorry, no search results are found for: "{this.props.filter}" &#128532; </p>
         }
-
     }
 
     render() {

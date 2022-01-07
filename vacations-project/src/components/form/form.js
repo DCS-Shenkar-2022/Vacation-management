@@ -49,8 +49,6 @@ class Form extends Component {
             this.props.onAfterDelete();
             this.clearStateFields();
         }
-        
-
     }
 
     onValueChange(eventChangeField) {
@@ -71,8 +69,6 @@ class Form extends Component {
         this.props.onCancel();
         this.clearStateFields();
     }
-
-
 
     validateInputs() {
         let errorMsg = ""
@@ -104,7 +100,7 @@ class Form extends Component {
 
         if (!validURL(this.state.imageUrl) && this.state.imageUrl != "") {
             if (counter == 1) {
-                errorMsg = +"Please check the following:\n"
+                errorMsg +="Please check the following:\n"
             }
             errorMsg += `${counter++}. Url is not valid!\n`
         }
@@ -129,8 +125,6 @@ class Form extends Component {
         }
 
     }
-
-
 
     renderForm() {
 

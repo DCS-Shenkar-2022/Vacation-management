@@ -15,7 +15,6 @@ class MainSection extends Component {
                 <Search onSearch={this.props.funcSetFilter}></Search>
                 <VacationList vacations={this.props.vacations} funcOnDelete={this.props.funcOnDelete} funcOnEdit={this.props.funcOnEdit} filter={this.props.filter} vacationRequestToEdit={this.props.vacationRequestToEdit}></VacationList> 
             </div>
-           
         )
     }
 

@@ -9,8 +9,6 @@ class Vacation extends Component {
         this.renderVacation = this.renderVacation.bind(this);
         this.delete = this.delete.bind(this);
         this.edit = this.edit.bind(this);
-        // this.numberWithCommas = this.numberWithCommas.bind(this);
-
     }
     delete() {
         this.props.onDelete(this.props.index)
@@ -18,9 +16,7 @@ class Vacation extends Component {
 
     edit() {
         this.props.onEdit(this.props.index);
-
     }
-
 
     renderVacation() {
         let borderStyle = { border: "none" }

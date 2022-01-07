@@ -7,7 +7,7 @@
 }
 
 .card{
-   width:293px;
+   max-width:293px;
    height: 261px;
    background-color:rgb(255, 255, 255);
    border-radius:25px;
@@ -102,7 +102,6 @@
     font-size: 14px;
     line-height: 127.7%;
     color:cadetblue ;
-
 }
 
 .down-card .place-icon{
