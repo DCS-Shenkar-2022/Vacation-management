@@ -1,90 +1,77 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../form/form.css'
 import { IoIosAdd, IoIosCheckmark, IoIosClose } from "react-icons/io";
-class Form extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            id: "",
-            name: "",
-            location: "",
-            price: "",
-            imageUrl: "",
-            errorMsg: ""
-        }
-        this.clearStateFields = this.clearStateFields.bind(this);
-        this.onValueChange = this.onValueChange.bind(this);
-        this.save = this.save.bind(this);
-        this.cancelSave = this.cancelSave.bind(this);
-        this.add = this.add.bind(this);
-        this.validateInputs = this.validateInputs.bind(this);
+const Form = (props) => {
+
+    const [id, setId] = useState("");
+    const [name, setName] = useState("");
+    const [location, setLocation] = useState("");
+    const [price, setPrice] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
+    const [errorMsg, setErrorMsg] = useState("");
+    const [prevEditMode, setEditMode] = useState(false);
+
+    const clearStateFields = () => {
+        setId("");
+        setName("");
+        setLocation("");
+        setPrice("");
+        setImageUrl("");
+        setErrorMsg("");
     }
 
-    clearStateFields() {
-        this.setState(() => {
-            return {
-                id: "",
-                name: "",
-                location: "",
-                price: "",
-                imageUrl: "",
-                errorMsg: ""
+    useEffect(() => {
+        if (props.editMode && (props.editMode != prevEditMode || props.vacationToEdit.id != id)) {
+            setId(props.vacationToEdit.id);
+            setName(props.vacationToEdit.name);
+            setLocation(props.vacationToEdit.location);
+            setPrice(props.vacationToEdit.price);
+            setImageUrl(props.vacationToEdit.imageUrl);
+            setEditMode(true);
 
+            if (errorMsg) {
+                setErrorMsg("");
             }
-        })
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.editMode && (this.props.editMode != prevProps.editMode || this.props.vacationToEdit.id != prevProps.vacationToEdit.id)) {
-            this.setState(() => {
-                return { ...this.props.vacationToEdit }
-            })
-            if (this.state.errorMsg) {
-            this.setState({
-                errorMsg: ""
-            })
         }
+        if (props.deleteMode) {
+            props.onAfterDelete();
+            clearStateFields();
         }
-        if (this.props.deleteMode) {
-            this.props.onAfterDelete();
-            this.clearStateFields();
-        }
+
+    })
+
+ 
+
+    const onValueChange=(eventChangeField,setter) =>{
+        setter(eventChangeField.target.value);
+     
     }
 
-    onValueChange(eventChangeField) {
-        this.setState((prevState) => {
-            return {
-                ...prevState,
-                [eventChangeField.target.name]: eventChangeField.target.value
-            }
-        })
+    const save = () => {
+        props.onSave({ id, name, location, price, imageUrl });
+        clearStateFields();
     }
 
-    save() {
-        this.props.onSave(this.state);
-        this.clearStateFields();
+    const cancelSave = () => {
+        props.onCancel();
+        clearStateFields();
     }
 
-    cancelSave() {
-        this.props.onCancel();
-        this.clearStateFields();
-    }
-
-    validateInputs() {
-        let errorMsg = ""
+    const validateInputs = () => {
+        let errorMsgToSave = ""
         let counter = 1;
-        if (this.state.name == "" || this.state.location == "" || this.state.price == "" || this.state.imageUrl == "") {
+        if (name == "" || location == "" || price == "" || imageUrl == "") {
             if (counter == 1) {
-                errorMsg += "Please check the following:\n"
+                errorMsgToSave += "Please check the following:\n"
             }
-            errorMsg += `${counter++}. All fields are required !\n`
+            errorMsgToSave += `${counter++}. All fields are required !\n`
         }
 
-        if (this.state.price < 0) {
+        if (price < 0) {
             if (counter == 1) {
-                errorMsg = +"Please check the following:\n"
+                errorMsgToSave += "Please check the following:\n"
             }
-            errorMsg += `${counter++}. Negative price is not valid !\n`
+            errorMsgToSave += `${counter++}. Negative price is not valid !\n`
 
         }
 
@@ -98,27 +85,25 @@ class Form extends Component {
             return !!pattern.test(urlToCheck);
         }
 
-        if (!validURL(this.state.imageUrl) && this.state.imageUrl != "") {
+        if (!validURL(imageUrl) && imageUrl != "") {
             if (counter == 1) {
-                errorMsg +="Please check the following:\n"
+                errorMsgToSave +="Please check the following:\n"
             }
-            errorMsg += `${counter++}. Url is not valid!\n`
+            errorMsgToSave += `${counter++}. Url is not valid!\n`
         }
 
-        if (errorMsg == "")
+        if (errorMsgToSave == "")
             return true;
 
-        this.setState({
-            errorMsg: errorMsg
-        })
+        setErrorMsg(errorMsgToSave);
 
     }
 
-    add() {
+    const add = () => {
 
-        if (this.validateInputs()) {
-            this.props.onAdd({ id: null, name: this.state.name, location: this.state.location, price: this.state.price, imageUrl: this.state.imageUrl });
-            this.clearStateFields();
+        if (validateInputs()) {
+            props.onAdd({ id: null, name: name, location: location, price: price, imageUrl: imageUrl });
+            clearStateFields();
         }
         else {
             return;
@@ -126,41 +111,38 @@ class Form extends Component {
 
     }
 
-    renderForm() {
 
-        return (
-            <div className={this.props.editMode ? "form" : "form form-add"} >
-                <div className="form-title"> {this.props.editMode ? <div>Edit a Vacation</div> : <div>Add a New Vacation</div>}</div>
-                <form className="all-input-elements">
-                    <div className="inputelement">
-                        <label>Name</label>
-                        <input type="text" placeholder="Name" name="name" value={this.state.name} onChange={this.onValueChange} ></input>
-                    </div>
-                    <div className="inputelement">
-                        <label>Location</label>
-                        <input type="text" placeholder="Location" name="location" value={this.state.location} onChange={this.onValueChange}></input>
-                    </div>
-                    <div className="inputelement">
-                        <label>Price</label>
-                        <input type="number" placeholder="Price" name="price" value={this.state.price} onChange={this.onValueChange}></input>
-                    </div>
-                    <div className="inputelement">
-                        <label>Image Url</label>
-                        <input type="text" placeholder="Image Url" name="imageUrl" value={this.state.imageUrl} onChange={this.onValueChange}></input>
-                    </div>
-                    <div className="error-msg">{this.state.errorMsg}</div>
-
-                </form>
-                <div className="form-buttons">{this.props.editMode ?
-                    <div><IoIosClose className="cancel-button" onClick={this.cancelSave}></IoIosClose><IoIosCheckmark className="check-button" onClick={this.save}></IoIosCheckmark>  </div> :
-                    <IoIosAdd className='plus-button' onClick={this.add}></IoIosAdd>}
+    return (
+        <div className={props.editMode ? "form" : "form form-add"} >
+            <div className="form-title"> {props.editMode ? <div>Edit a Vacation</div> : <div>Add a New Vacation</div>}</div>
+            <form className="all-input-elements">
+                <div className="inputelement">
+                    <label>Name</label>
+                    <input type="text" placeholder="Name" name="name" value={name} onChange={e=>onValueChange(e,setName)} ></input>
                 </div>
-            </div>
-        )
-    }
+                <div className="inputelement">
+                    <label>Location</label>
+                    <input type="text" placeholder="Location" name="location" value={location}  onChange={e=>onValueChange(e,setLocation)}></input>
+                </div>
+                <div className="inputelement">
+                    <label>Price</label>
+                    <input type="number" placeholder="Price" name="price" value={price}  onChange={e=>onValueChange(e,setPrice)}></input>
+                </div>
+                <div className="inputelement">
+                    <label>Image Url</label>
+                    <input type="text" placeholder="Image Url" name="imageUrl" value={imageUrl} onChange={e=>onValueChange(e,setImageUrl)}></input>
+                </div>
+                <div className="error-msg">{errorMsg}</div>
 
-    render() {
-        return this.renderForm();
-    }
+            </form>
+            <div className="form-buttons">{props.editMode ?
+                <div><IoIosClose className="cancel-button" onClick={cancelSave}></IoIosClose><IoIosCheckmark className="check-button" onClick={save}></IoIosCheckmark>  </div> :
+                <IoIosAdd className='plus-button' onClick={add}></IoIosAdd>}
+            </div>
+        </div>
+    )
+
+
+
 }
 export default Form;
