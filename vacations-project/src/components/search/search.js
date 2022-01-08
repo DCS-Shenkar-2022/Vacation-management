@@ -4,7 +4,6 @@ import { MdOutlineSearch } from "react-icons/md";
 import './search.css'
 
 const Search = (props) => {
-
     const [valueToSearch, setValueToSearch] = useState("");
 
     const search = () => {
@@ -21,7 +20,6 @@ const Search = (props) => {
             <div className="hover-search"><MdOutlineSearch className="search-button" onClick={search} /></div>
         </div>
     )
-
 }
 export default Search;
 
