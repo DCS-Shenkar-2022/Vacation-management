@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Vacation from '../vacation/vacations';
 import '../vacationsList/vacationsList.css'
 
 const VacationList = (props) => {
-
 
     const createOneVacation = (vacation, keyIterator) => {
         return <Vacation key={keyIterator} index={vacation.id} imageUrl={vacation.imageUrl} name={vacation.name} location={vacation.location} price={vacation.price} onDelete={props.funcOnDelete} onEdit={props.funcOnEdit} onReqEdit={props.vacationRequestToEdit}>
@@ -39,13 +38,11 @@ const VacationList = (props) => {
         }
     }
 
-
     return (
         <div className="vacations-list">
             {renderVacations(props.filter)}
         </div>
     )
-
 }
 
 export default VacationList;

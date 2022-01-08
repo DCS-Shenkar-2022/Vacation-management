@@ -4,17 +4,12 @@ import VacationList from '../vacationsList/vacationsList';
 import '../mainSection/mainSection.css'
 
 const MainSection = (props) => {
-    // const renderMainSection= (props) => {
         return (
             <div className="main-section"> 
                 <Search onSearch={props.funcSetFilter}></Search>
                 <VacationList vacations={props.vacations} funcOnDelete={props.funcOnDelete} funcOnEdit={props.funcOnEdit} filter={props.filter} vacationRequestToEdit={props.vacationRequestToEdit}></VacationList> 
             </div>
         )
-    // }
-  
-    // return (renderMainSection())
-    
 }
 export default MainSection;
 

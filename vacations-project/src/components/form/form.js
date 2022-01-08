@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../form/form.css'
 import { IoIosAdd, IoIosCheckmark, IoIosClose } from "react-icons/io";
-const Form = (props) => {
 
+const Form = (props) => {
     const [id, setId] = useState("");
     const [name, setName] = useState("");
     const [location, setLocation] = useState("");
@@ -40,11 +40,9 @@ const Form = (props) => {
 
     })
 
- 
-
-    const onValueChange=(eventChangeField,setter) =>{
+    const onValueChange = (eventChangeField, setter) => {
         setter(eventChangeField.target.value);
-     
+
     }
 
     const save = () => {
@@ -87,7 +85,7 @@ const Form = (props) => {
 
         if (!validURL(imageUrl) && imageUrl != "") {
             if (counter == 1) {
-                errorMsgToSave +="Please check the following:\n"
+                errorMsgToSave += "Please check the following:\n"
             }
             errorMsgToSave += `${counter++}. Url is not valid!\n`
         }
@@ -100,7 +98,6 @@ const Form = (props) => {
     }
 
     const add = () => {
-
         if (validateInputs()) {
             props.onAdd({ id: null, name: name, location: location, price: price, imageUrl: imageUrl });
             clearStateFields();
@@ -108,41 +105,38 @@ const Form = (props) => {
         else {
             return;
         }
-
     }
 
-
     return (
-        <div className={props.editMode ? "form" : "form form-add"} >
+        <form className={props.editMode ? "form" : "form form-add"} >
             <div className="form-title"> {props.editMode ? <div>Edit a Vacation</div> : <div>Add a New Vacation</div>}</div>
-            <form className="all-input-elements">
+
+            <div className="all-input-elements">
+
                 <div className="inputelement">
                     <label>Name</label>
-                    <input type="text" placeholder="Name" name="name" value={name} onChange={e=>onValueChange(e,setName)} ></input>
+                    <input type="text" placeholder="Name" name="name" value={name} onChange={e => onValueChange(e, setName)} ></input>
                 </div>
                 <div className="inputelement">
                     <label>Location</label>
-                    <input type="text" placeholder="Location" name="location" value={location}  onChange={e=>onValueChange(e,setLocation)}></input>
+                    <input type="text" placeholder="Location" name="location" value={location} onChange={e => onValueChange(e, setLocation)}></input>
                 </div>
                 <div className="inputelement">
                     <label>Price</label>
-                    <input type="number" placeholder="Price" name="price" value={price}  onChange={e=>onValueChange(e,setPrice)}></input>
+                    <input type="number" placeholder="Price" name="price" value={price} onChange={e => onValueChange(e, setPrice)}></input>
                 </div>
                 <div className="inputelement">
                     <label>Image Url</label>
-                    <input type="text" placeholder="Image Url" name="imageUrl" value={imageUrl} onChange={e=>onValueChange(e,setImageUrl)}></input>
+                    <input type="text" placeholder="Image Url" name="imageUrl" value={imageUrl} onChange={e => onValueChange(e, setImageUrl)}></input>
                 </div>
                 <div className="error-msg">{errorMsg}</div>
 
-            </form>
-            <div className="form-buttons">{props.editMode ?
-                <div><IoIosClose className="cancel-button" onClick={cancelSave}></IoIosClose><IoIosCheckmark className="check-button" onClick={save}></IoIosCheckmark>  </div> :
-                <IoIosAdd className='plus-button' onClick={add}></IoIosAdd>}
             </div>
-        </div>
+            <div className="form-buttons">{props.editMode ?
+                <div><IoIosClose className="cancel-button" onClick={cancelSave}/><IoIosCheckmark className="check-button" onClick={save}/>  </div> :
+                <IoIosAdd className='plus-button' onClick={add}/>}
+            </div>
+        </form>
     )
-
-
-
 }
 export default Form;

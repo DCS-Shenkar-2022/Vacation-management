@@ -14,11 +14,11 @@ const Vacation = (props) => {
         props.onEdit(props.index);
     }
 
-
     let borderStyle = { border: "none" }
     if (props.onReqEdit && props.onReqEdit === props.index) {
         borderStyle.border = "2px #F86549 solid";
     }
+    
     return (
         <div className="vacation">
             <div className="card" style={borderStyle}>

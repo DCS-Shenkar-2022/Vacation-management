@@ -18,7 +18,6 @@
 .up-card{
     height: 190px;
     position: relative;
-    
 }
 
 .up-card div{
@@ -29,7 +28,6 @@
     left: 13px;
     top: 12.62px;
     border-radius: 20px;
-
 }
 
 .up-card img{
@@ -37,7 +35,6 @@
     border-radius: 20px;
     object-fit: cover;
     width:100%;
-   
 }
 
 .edit-button{
